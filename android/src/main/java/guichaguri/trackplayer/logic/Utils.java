@@ -107,8 +107,7 @@ public class Utils {
     }
 
     public static int getResourceId(Context context, Bundle bundle) {
-        ResourceDrawableIdHelper helper = ResourceDrawableIdHelper.getInstance();
-        return helper.getResourceDrawableId(context, bundle.getString("uri"));
+        return context.getResources().getIdentifier(bundle.getString("uri"), "raw", context.getPackageName());
     }
 
     public static long toMillis(double seconds) {
