@@ -93,9 +93,8 @@ public class Utils {
             return Uri.parse((String)obj);
         } else if(obj instanceof Bundle) {
             String uri = ((Bundle)obj).getString("uri");
-
-            ResourceDrawableIdHelper helper = ResourceDrawableIdHelper.getInstance();
-            int id = helper.getResourceDrawableId(context, uri);
+            
+             int id = context.getResources().getIdentifier(uri, "raw", context.getPackageName());
 
             if(id > 0) {
                 return getResourceUri(context.getResources(), id);
